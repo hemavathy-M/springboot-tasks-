@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Feedback Form</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+padding:40px;
+}
+
+.container{
+width:400px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+}
+
+input:hover, textarea:hover{
+background:#ffffcc;
+}
+
+button{
+padding:10px;
+width:100%;
+background:#28a745;
+color:white;
+border:none;
+font-size:16px;
+}
+
+.error{
+color:red;
+font-size:14px;
+}
+
+</style>
+
+<script>
+
+function validateName(){
+
+let name=document.getElementById("name").value;
+
+if(name.length < 3){
+document.getElementById("nameError").innerHTML="Name must be at least 3 characters";
+}
+else{
+document.getElementById("nameError").innerHTML="";
+}
+
+}
+
+function validateEmail(){
+
+let email=document.getElementById("email").value;
+
+if(!email.includes("@")){
+document.getElementById("emailError").innerHTML="Enter valid email";
+}
+else{
+document.getElementById("emailError").innerHTML="";
+}
+
+}
+
+function submitForm(){
+
+alert("Thank you for your feedback!");
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Customer Feedback Form</h2>
+
+<form>
+
+<label>Name</label>
+<input type="text" id="name" onkeyup="validateName()">
+<div id="nameError" class="error"></div>
+
+<label>Email</label>
+<input type="text" id="email" onkeyup="validateEmail()">
+<div id="emailError" class="error"></div>
+
+<label>Feedback</label>
+<textarea rows="4"></textarea>
+
+<button type="button" ondblclick="submitForm()">Submit Feedback</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
